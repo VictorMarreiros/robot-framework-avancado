@@ -30,14 +30,14 @@ Pegando uma linha específica
     ${STRING}       Pega arquivo
     ${LINHA_3}      Get Line    ${STRING}    3
     Log             Conteúdo da linha 03 do arquivo:\n"${LINHA_3}"
-    FOR  ${NUMERO_LINHA}   IN RANGE   0   6
+    FOR  ${NUMERO_LINHA}   IN RANGE   0   6                                         # pegando conteúdo percorrendo o arquivo 
          ${CONTEUDO_LINHA}      Get Line    ${STRING}   ${NUMERO_LINHA}
          Log     Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"
     END
 
 Pegando uma linha específica com a palavra "${PALAVRA}"
     ${STRING}       Pega arquivo
-    ${LINHA}        Get Lines Containing String    ${STRING}    ${PALAVRA}
+    ${LINHA}        Get Lines Containing String    ${STRING}    ${PALAVRA}          
     Log             Linha com ${PALAVRA}:\n"${LINHA}"
 
 Pegando até um marcador
@@ -45,19 +45,19 @@ Pegando até um marcador
     ## você quer considerar espaço em branco
     ${STRING}       Pega arquivo
     ${LINHA}        Get Line    ${STRING}    0
-    ${COMECO}       Fetch From Left    ${LINHA}    0
-    ${FIM}          Fetch From Right   ${LINHA}    linha${SPACE}
+    ${COMECO}       Fetch From Left    ${LINHA}    0                                # pegando o conteúdo da linha até encontrar o 0
+    ${FIM}          Fetch From Right   ${LINHA}    linha${SPACE}                    # pegando o conteúdo da linha até encontrar 'linha '
     Log   Começo: "${COMECO}"\nFim:"${FIM}"\n\nTudo junto: "${COMECO}${FIM}"
 
 Substituindo valores no texto
     ${TEXTO}        Pega arquivo
-    ${NOVO_TEXTO}   Replace String    string=${TEXTO}    search_for=Minha linha    replace_with=Conteúdo da minha linha
+    ${NOVO_TEXTO}   Replace String    string=${TEXTO}    search_for=Minha linha    replace_with=Conteúdo da minha linha    # dando replace procurando por uma string específica do arquivo
     Log             O velho texto era assim:\n${TEXTO}\nO novo texto ficou assim:\n${NOVO_TEXTO}
     Create File     ./my_files/meu_novo_arquivo.txt      ${NOVO_TEXTO}
 
 Quero tudo minúsculo!
     ${TEXTO}        Pega arquivo
-    ${TEXTO}        Convert To Lowercase    ${TEXTO}
+    ${TEXTO}        Convert To Lowercase    ${TEXTO}           
     Log             Meu texto todo minúsculo:\n${TEXTO}
 
 Quero tudo maiúsculo!
