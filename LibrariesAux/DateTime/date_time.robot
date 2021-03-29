@@ -34,7 +34,7 @@ Teste pegando ano - mês - dia separadamente
 Trabalhando com tempo
     ${HORA}     Convert Time	1 minute 30 seconds
     Log         São ${HORA} segundos em 1 minuto e 30 segundos!
-    ${HORA}     Convert Time	5400   verbose
+    ${HORA}     Convert Time	5400   verbose                          # convertendo segundos para tempo (verbose) 
     Log         5400 segundos é ${HORA}!
     ${HORA}     Convert Time	5500   timer   exclude_millis=yes       # convertendo para o tipo timer excluindo os milisegundos
     Log         5500 segundos é ${HORA}!
