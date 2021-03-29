@@ -2,6 +2,7 @@
 Documentation   http://robotframework.org/robotframework/latest/libraries/OperatingSystem.html
 Library         OperatingSystem
 
+
 *** Test Cases ***
 Exemplo 01: Criando arquivos
     Criando um arquivo texto
@@ -19,6 +20,7 @@ Exemplo 04: Excluindo arquivos
     Excluir arquivo     arquivo_TEXTO_COPIA.txt
     Excluir arquivo     arquivo_JSON_COPIA.json
     Listando arquivos do meu diretório
+
 
 *** Keywords ***
 Criando um arquivo texto
@@ -50,3 +52,6 @@ Listando arquivos do meu diretório
 Excluir arquivo
     [Arguments]         ${ARQUIVO}
     Remove File         ./my_files/${ARQUIVO}
+
+
+# OBS: Também é possível manipular variáveis de ambiente do sistema operacional
