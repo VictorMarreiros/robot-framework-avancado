@@ -2,6 +2,7 @@
 Documentation   http://robotframework.org/robotframework/latest/libraries/DateTime.html
 Library         DateTime
 
+
 *** Test Cases ***
 Exemplo 01: Pegando data e hora atuais
     Teste pegando data atual
@@ -15,26 +16,27 @@ Exemplo 03: Cálculos com data
     Adicionando tempo de data
     Subtraindo tempo de data
 
+
 *** Keywords ***
 Teste pegando data atual
-    ${AGORA}    Get Current Date     result_format=%d-%m-%y
+    ${AGORA}    Get Current Date     result_format=%d-%m-%y             # Formatando a data
     Log         ${AGORA}
 
 Teste pegando data e hora atuais
-    ${AGORA}    Get Current Date     result_format=%Y-%m-%dT%H:%M:%S
+    ${AGORA}    Get Current Date     result_format=%Y-%m-%dT%H:%M:%S    # letra maiuscula 'Y' indica que queremos os 4 digitos
     Log         ${AGORA}
 
 Teste pegando ano - mês - dia separadamente
     ${HOJE}     Get Current Date
-    ${HOJE}     Convert Date   ${HOJE}   datetime
-    Log         ${HOJE.day}-${HOJE.month}-${HOJE.year}
+    ${HOJE}     Convert Date   ${HOJE}   datetime                       # convertendo em datetime 
+    Log         ${HOJE.day}-${HOJE.month}-${HOJE.year}                  # para poder acessar cada atributo da data e hora
 
 Trabalhando com tempo
     ${HORA}     Convert Time	1 minute 30 seconds
     Log         São ${HORA} segundos em 1 minuto e 30 segundos!
     ${HORA}     Convert Time	5400   verbose
     Log         5400 segundos é ${HORA}!
-    ${HORA}     Convert Time	5500   timer   exclude_millis=yes
+    ${HORA}     Convert Time	5500   timer   exclude_millis=yes       # convertendo para o tipo timer excluindo os milisegundos
     Log         5500 segundos é ${HORA}!
 
 Adicionando tempo de data
