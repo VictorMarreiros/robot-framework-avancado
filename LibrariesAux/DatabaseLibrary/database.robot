@@ -12,16 +12,16 @@ Test Setup      Conectar no Banco de Dados
 Test Teardown   Desconectar do Banco de Dados
 
 *** Test Cases ***
-Exemplo 01: Executando scripts SQL via Arquivos
+Exemplo 01: Executando scripts SQL via Arquivos         # Sempre certificar de que o caminho passado é o caminho exato de onde está o arquivo
     Executar script via ARQUIVO no Banco de Dados       ${CURDIR}/my_sql_scripts/create_table_accounts.sql
     Executar script via ARQUIVO no Banco de Dados       ${CURDIR}/my_sql_scripts/insert_into_account.sql
     Confere se "May Fernandes" foi inserido com sucesso
 
-Exemplo 02: Executando scripts SQL via STRING
+Exemplo 02: Executando scripts SQL via STRING           # querys pequenas não precisam de um arquivo próprio para executá-la
     Executar script via STRING no Banco de Dados        INSERT INTO public.account(user_id, username, password, email) VALUES (2, 'Luiz Silva', 'robot987', 'robotizando2@robot.com')
     Confere se "Luiz Silva" foi inserido com sucesso
 
-Exemplo 03: Select Statement
+Exemplo 03: Select Statement                            
     ${RESPOSTA_SELECT}      Executar query no Banco de dados    SELECT * from account
     Log    ${RESPOSTA_SELECT}
     ## Para pegar um campo específico, utilize as tuplas [NUM_LINHA][NUM_COLUNA]
