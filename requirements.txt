@@ -5,3 +5,4 @@ robotframework-databaselibrary
 robotframework-operatingsystem
 robotframework-process
 robotframework-difflibrary
+psycopg2
