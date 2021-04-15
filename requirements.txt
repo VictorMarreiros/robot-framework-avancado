@@ -1,0 +1,7 @@
+robotframework
+robotframework-seleniumlibrary
+robotframework-datetime
+robotframework-databaselibrary
+robotframework-operatingsystem
+robotframework-process
+robotframework-difflibrary
