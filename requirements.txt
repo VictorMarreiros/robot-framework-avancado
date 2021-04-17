@@ -5,9 +5,5 @@ robotframework-databaselibrary
 robotframework-operatingsystem
 robotframework-process
 robotframework-difflibrary
-<<<<<<< HEAD
 psycopg2
 pymysql
-=======
-psycopg2
->>>>>>> 765ee360e9adfc0063e10cd649ad21e6c1f7d265
