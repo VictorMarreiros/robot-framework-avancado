@@ -1,5 +1,5 @@
 *** Settings ***
-Library     ./HashLibrary/geradorHash.py
+Library     ./Libraries/HashLibrary/geradorHash.py
 
 *** Test Cases ***
 Teste de conversão de string para HASH sha256
