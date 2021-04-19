@@ -6,21 +6,23 @@ Library    SeleniumLibrary
 *** Variables ***
 ${LOGIN_TITLE}              Login - My Store
 ${LOGIN_BTN_LOGIN}          css=a[class="login"]
-${LOGIN_CMP_EMAIL}          css=#email_create
-${LOGIN_BTN_SUBMITCREATE}   xpath=//*[@id="SubmitCreate"]
+${LOGIN_CMP_EMAIL}          id=email_create
+${LOGIN_BTN_SUBMITCREATE}   id=SubmitCreate
+
+
 
 *** Keywords ***
 #### Ações
 Clicar em "Sign in"
-    Click Element    xpath=//*[@id="header"]//*[@class="login"][contains(text(),"Sign in")]
+    Click Element                   ${LOGIN_BTN_LOGIN}
 
 Informar um e-mail válido
-    Wait Until Element Is Visible   id=email_create
+    Wait Until Element Is Visible   ${LOGIN_CMP_EMAIL}
     ${EMAIL}                        Generate Random String
-    Input Text                      id=email_create    ${EMAIL}@testerobot.com
+    Input Text                      ${LOGIN_CMP_EMAIL}    ${EMAIL}@testerobot.com
 
 Clicar em "Create an account"
-    Click Button    id=SubmitCreate
+    Click Button    ${LOGIN_BTN_SUBMITCREATE}
 
 Preencher os dados obrigatórios
     Wait Until Element Is Visible   xpath=//*[@id="account-creation_form"]//h3[contains(text(),"Your personal information")]
@@ -41,7 +43,7 @@ Preencher os dados obrigatórios
 Submeter cadastro
     Click Button    submitAccount
 
-    
+
 ## Conferências
 Conferir se o cadastro foi efetuado com sucesso
     Wait Until Element Is Visible    xpath=//*[@id="center_column"]/p
