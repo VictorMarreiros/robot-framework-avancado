@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library         FakerLibrary
 
 
 *** Variables ***
@@ -12,9 +13,9 @@ ${LOGIN_BTN_SUBMITCREATE}       id=SubmitCreate
 #### Ações
 Informar um e-mail válido
     Wait Until Element Is Visible   ${LOGIN_CMP_EMAIL}
-    ${EMAIL}                        Generate Random String
+    ${EMAIL}=                       FakerLibrary.email
     Set Suite Variable              ${EMAIL}
-    Input Text                      ${LOGIN_CMP_EMAIL}    ${EMAIL}@testerobot.com
+    Input Text                      ${LOGIN_CMP_EMAIL}    ${EMAIL}
 
 Clicar em "Create an account"
     Click Button    ${LOGIN_BTN_SUBMITCREATE}
