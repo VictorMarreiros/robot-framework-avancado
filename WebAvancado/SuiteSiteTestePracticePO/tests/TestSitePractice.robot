@@ -4,6 +4,7 @@ Resource            ../resources/PO/Home.robot
 Resource            ../resources/PO/Carrinho.robot
 Resource            ../resources/PO/Login.robot
 Resource            ../resources/PO/Register.robot
+Resource            ../resources/PO/Profile.robot
 Test Setup          Abrir navegador
 Test Teardown       Fechar navegador
 
@@ -22,4 +23,4 @@ Caso de Teste com PO 02: Adicionar Cliente
     Login.Clicar em "Create an account"
     Register.Preencher os dados obrigatórios
     Register.Submeter cadastro
-    Register.Conferir se o cadastro foi efetuado com sucesso
+    Profile.Conferir se o cadastro foi efetuado com sucesso
