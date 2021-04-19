@@ -2,6 +2,7 @@
 Resource            ../resources/Resource.robot
 Resource            ../resources/PO/Home.robot
 Resource            ../resources/PO/Carrinho.robot
+Resource            ../resources/PO/Login.robot
 Test Setup          Abrir navegador
 Test Teardown       Fechar navegador
 
@@ -12,12 +13,12 @@ Caso de Teste com PO 01: Remover Produtos do Carrinho
     Carrinho.Excluir o produto do carrinho
     Carrinho.Conferir se o carrinho fica vazio
 
-### EXERCÍCIO
-# Caso de Teste com PO 02: Adicionar Cliente
-#     Acessar a página home do site
-#     Clicar em "Sign in"
-#     Informar um e-mail válido
-#     Clicar em "Create an account"
-#     Preencher os dados obrigatórios
-#     Submeter cadastro
-#     Conferir se o cadastro foi efetuado com sucesso
+## EXERCÍCIO
+Caso de Teste com PO 02: Adicionar Cliente
+    Home.Acessar a página home do site
+    Home.Clicar em "Sign in"
+    Login.Informar um e-mail válido
+    Login.Clicar em "Create an account"
+    Login.Preencher os dados obrigatórios
+    Login.Submeter cadastro
+    Login.Conferir se o cadastro foi efetuado com sucesso

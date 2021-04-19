@@ -11,6 +11,7 @@ ${HOME_TOPMENU}             xpath=//*[@id="block_top_menu"]/ul
 ${HOME_PRODUCT}             xpath=//*[@id="center_column"]//img[@alt="Faded Short Sleeve T-shirts"]
 ${HOME_BTN_ADDCART}         xpath=//*[@id="add_to_cart"]/button
 ${HOME_BTN_CHECKOUT}        xpath=//*[@id="layer_cart"]//a[@title="Proceed to checkout"]
+${LOGIN_BTN_LOGIN}          css=a[class="login"]
 
 *** Keywords ***
 #### Ações
@@ -40,3 +41,6 @@ Clicar no botão "Add to Cart" do produto
 Clicar no botão "Proceed to checkout"
     Wait Until Element Is Visible   ${HOME_BTN_CHECKOUT}
     Click Element                   ${HOME_BTN_CHECKOUT}
+
+Clicar em "Sign in"
+    Click Element                   ${LOGIN_BTN_LOGIN}

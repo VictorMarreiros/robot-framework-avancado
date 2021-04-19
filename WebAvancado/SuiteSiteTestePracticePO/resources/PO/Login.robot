@@ -4,18 +4,23 @@ Library    SeleniumLibrary
 
 
 *** Variables ***
-${LOGIN_TITLE}              Login - My Store
-${LOGIN_BTN_LOGIN}          css=a[class="login"]
-${LOGIN_CMP_EMAIL}          id=email_create
-${LOGIN_BTN_SUBMITCREATE}   id=SubmitCreate
-
-
+${LOGIN_TITLE}                  Login - My Store
+${LOGIN_CMP_EMAIL}              id=email_create
+${LOGIN_BTN_SUBMITCREATE}       id=SubmitCreate
+${LOGIN_PAGE_HEADING}           xpath=//*[@id="account-creation_form"]//h3[contains(text(),"Your personal information")]
+${LOGIN_OPT_GENDER}             id=id_gender2
+${LOGIN_FIELD_FIRSTNAME}        id=customer_firstname
+${LOGIN_FIELD_LASTNAME}         id=customer_lastname
+${LOGIN_FIELD_PASSWORD}         id=passwd
+${LOGIN_FIELD_ADDRESS}          id=address1
+${LOGIN_FIELD_CITY}             id=city
+${LOGIN_SELECT_ID_STATE}        id=id_state
+${LOGIN_FIELD_POSTCODE}         id=postcode
+${LOGIN_FIELD_PHONE_MOB}        id=phone_mobile
+${LOGIN_BTN_SUBMITACCOUNT}      submitAccount
 
 *** Keywords ***
 #### Ações
-Clicar em "Sign in"
-    Click Element                   ${LOGIN_BTN_LOGIN}
-
 Informar um e-mail válido
     Wait Until Element Is Visible   ${LOGIN_CMP_EMAIL}
     ${EMAIL}                        Generate Random String
@@ -25,23 +30,24 @@ Clicar em "Create an account"
     Click Button    ${LOGIN_BTN_SUBMITCREATE}
 
 Preencher os dados obrigatórios
-    Wait Until Element Is Visible   xpath=//*[@id="account-creation_form"]//h3[contains(text(),"Your personal information")]
-    Click Element                   id=id_gender2
-    Input Text                      id=customer_firstname    May
-    Input Text                      id=customer_lastname     Fernandes
-    Input Text                      id=passwd                123456
-    Input Text                      id=address1              Rua Framework, Bairro Robot
-    Input Text                      id=city                  Floripa
-    Set Focus To Element            id=id_state
+    Wait Until Element Is Visible   ${LOGIN_PAGE_HEADING}
+    Click Element                   ${LOGIN_OPT_GENDER}
+    Input Text                      ${LOGIN_FIELD_FIRSTNAME}        May
+    Input Text                      ${LOGIN_FIELD_LASTNAME}         Fernandes
+    Input Text                      ${LOGIN_CMP_EMAIL}              ${EMAIL}@testerobot.com
+    Input Text                      ${LOGIN_FIELD_PASSWORD}         123456
+    Input Text                      ${LOGIN_FIELD_ADDRESS}          Rua Framework, Bairro Robot
+    Input Text                      ${LOGIN_FIELD_CITY}             Floripa
+    Set Focus To Element            ${LOGIN_SELECT_ID_STATE}
     ### No firefox ocorreu problema ao achar o listbox State, então coloquei um if para esperar
     ### pelo elemento quando for firefox
-    Run Keyword If    '${BROWSER}'=='firefox'  Wait Until Element Is Visible   id=id_state
-    Select From List By Index       id=id_state              9
-    Input Text                      id=postcode              12345
-    Input Text                      id=phone_mobile          99988877
+    Run Keyword If    '${BROWSER}'=='firefox'  Wait Until Element Is Visible   ${LOGIN_SELECT_ID_STATE}
+    Select From List By Index       ${LOGIN_SELECT_ID_STATE}              9
+    Input Text                      ${LOGIN_FIELD_POSTCODE}             12345
+    Input Text                      ${LOGIN_FIELD_PHONE_MOB}          99988877
 
 Submeter cadastro
-    Click Button    submitAccount
+    Click Button    ${LOGIN_BTN_SUBMITACCOUNT}
 
 
 ## Conferências
